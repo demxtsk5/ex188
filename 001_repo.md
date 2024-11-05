@@ -3,7 +3,7 @@
 - install podman
 
 ```bash
-dnf install podman
+dnf install podman skopeo
 ```
 
 - setup local history
@@ -45,14 +45,33 @@ man skopeo-inspect
 skopeo inspect docker://docker.io/library/httpd
 ```
 
-- pull image from history
-
-```bash
-podman pull httpd:2.4.61
-```
-
 - analyze local image (e.g. exposed ports, enviroment variables)
 
 ```bash
 podman inspect httpd:latest
+```
+
+- pull image from history
+
+```bash
+[root@r01 ~]# p pull docker.io/library/mysql:latest
+Trying to pull docker.io/library/mysql:latest...
+Getting image source signatures
+Copying blob 806ebf9b9401 done   |
+Copying blob 8b4274ea61c5 done   |
+Copying blob 08ba006fa9b4 done   |
+Copying blob 92a1aa4ee2ea done   |
+Copying blob df48654477e3 done   |
+Copying blob a3bc7a62e19a done   |
+Copying blob b037f0555e71 done   |
+Copying blob 0cace4982789 done   |
+Copying blob 29ead6e17e26 done   |
+Copying blob d624aa804ccd done   |
+Copying config 22aaacaafc done   |
+Writing manifest to image destination
+22aaacaafc0e7ec1fe9dde21dcc39fd815cec2f4c58a07b2bbe25410fc223203
+[root@r01 ~]# p images
+REPOSITORY                  TAG         IMAGE ID      CREATED        SIZE
+docker.io/library/mysql     latest      22aaacaafc0e  3 weeks ago    642 MB
+docker.io/library/registry  latest      c9cf76bb104e  13 months ago  25.5 MB
 ```
