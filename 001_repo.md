@@ -10,5 +10,5 @@ dnf install podman
 ```
   
 ```bash
-podman 
+podman run
 ```
