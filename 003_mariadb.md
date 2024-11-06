@@ -17,7 +17,7 @@ And set the following environment variables:
 Connect to your database as the root user and check for the existence of the beer database:
 
 ```bash
-  echo “show databases;” | mysql -umicha -h <ip-address> -pex188
+  echo "show databases;" |mysql -u micha -h <ip-address> -pex188
 ```
 
 Run the command located in /sql/beer.sql to insert values into the database.
