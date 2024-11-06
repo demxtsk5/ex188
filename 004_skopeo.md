@@ -1,29 +1,47 @@
 # Skopeo
 
-Use skopeo to find all of the tags associated with httpd on the registry.do180.lab server. Create and run a container with the following parameters:
+Use skopeo to find all of the tags associated with httpd on the docker.io server. Create and run a container with the following parameters:
 
-- Use an httpd image from registry.do180.lab that is NOT tagged with latest
+- Use an httpd image from docker.io that is NOT tagged with latest
 - Publish port 80 on 8008
 - Give the container the name alp-httpd
 - Run the container in detached mode
 
 ```bash
 man skopeo-inspect
-skopeo inspect docker://registry.do180.lab:5000/httpd 
+skopeo inspect docker://docker.io/library/httpd 
 {
-    "Name": "registry.do180.lab:5000/httpd",
-    "Digest": "sha256:fd54136dc090c0de9a65f7d4e31f18864b7a13db852a58e14899bbee84188837",
+    "Name": "docker.io/library/httpd",
+    "Digest": "sha256:bbea29057f25d9543e6a96a8e3cc7c7c937206d20eab2323f478fdb2469d536d",
     "RepoTags": [
-        "latest",
-        "2.4-alpine"
+        ...
+        "2.4.62",
+        "2.4.62-alpine",
+        "2.4.62-alpine3.20",
+        "2.4.62-bookworm",
+        "alpine",
+        "alpine3.13",
+        "alpine3.14",
+        "alpine3.15",
+        "alpine3.16",
+        "alpine3.17",
+        "alpine3.18",
+        "alpine3.19",
+        "alpine3.20",
+        "bookworm",
+        "bullseye",
+        "buster",
+        "latest"
+        ...
     ]
 }
 ```
 
 ```bash
-podman run --name=alp-httpd -d -p 8008:80 registry.do180.lab:5000/httpd:2.4-alpine
+podman run --name=alp-httpd -d -p 8008:80 docker.io/library/httpd:buster
 
 podman ps
-CONTAINER ID  IMAGE                                     COMMAND           CREATED         STATUS             PORTS                   NAMES
-ad5a760e4af7  registry.do180.lab:5000/httpd:2.4-alpine  httpd-foreground  25 seconds ago  Up 24 seconds ago  0.0.0.0:8008->80/tcp    alp-httpd
+
+CONTAINER ID  IMAGE                           COMMAND           CREATED        STATUS        PORTS                 NAMES
+0a0fd6163131  docker.io/library/httpd:buster  httpd-foreground  2 seconds ago  Up 2 seconds  0.0.0.0:8008->80/tcp  alp-httpd
 ```
