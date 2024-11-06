@@ -39,3 +39,28 @@ systemctl status container-reg-httpd.service
      Active: active (running) since Wed 2024-11-06 09:24:09 CET; 1min 0s ago
 ...
 ```
+
+How to login into container?
+
+```bash
+podman exec -it reg-httpd /bin/bash
+```
+
+As ordinary user:
+
+IMPORTANT: do ssh user@localhost
+
+```bash
+podman run -d --name test httpd
+man podman-generate-systemd
+podman generate systemd --new --files --name test
+mkdir -p .config/systemd/user
+mv container-test.service .config/systemd/user/.
+loginctl enable-linger student
+systemctl --user enable --now container-test.service
+
+systemctl --user status container-test.service
+● container-test.service - Podman container-test.service
+     Loaded: loaded (/home/student/.config/systemd/user/container-test.service; enabled; preset: disabled)
+     Active: active (running) since Wed 2024-11-06 09:34:49 CET; 4min 20s ago
+```
