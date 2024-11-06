@@ -48,7 +48,7 @@ podman exec -it reg-httpd /bin/bash
 
 As ordinary user:
 
-IMPORTANT: do ssh user@localhost
+***IMPORTANT: do ssh user@localhost***
 
 ```bash
 podman run -d --name test httpd
