@@ -23,5 +23,5 @@ Connect to your database as the root user and check for the existence of the 
 Run the command located in /sql/beer.sql to insert values into the database.
 
 ```bash
-mysql -uroot -h <ip-address> -pSQLp4ss < /sql/003_beer.sql
+mysql -uroot -h <ip-address> -pSQLp4ss < ./003_beer.sql
 ```
