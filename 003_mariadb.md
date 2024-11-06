@@ -1,10 +1,10 @@
-# Start MariaDB
+# MariaDB
   
 Pull the latest version of the mariadb image from the registry on registry.do180.lab. 
   
 Run a container in the background with the following parameters:
 
-- Give the container the name of testql
+- Give the container the name of testsql
 - Publish port 3306
 
 And set the following environment variables:
