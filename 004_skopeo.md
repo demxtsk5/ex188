@@ -39,7 +39,9 @@ skopeo inspect docker://docker.io/library/httpd
 
 ```bash
 podman run --name=alp-httpd -d -p 8008:80 docker.io/library/httpd:buster
+```
 
+```bash
 podman ps
 
 CONTAINER ID  IMAGE                           COMMAND           CREATED        STATUS        PORTS                 NAMES
