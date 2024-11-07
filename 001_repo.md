@@ -32,10 +32,10 @@ CONTAINER ID  IMAGE                              COMMAND               CREATED  
 ```bash
 vi /etc/containers/registries.conf
 
-unqualified-search-registries = ["localhost:5000", "registry.access.redhat.com", "registry.redhat.io", "docker.io"]
-[[registry]]
-insecure = true
-location = "localhost:5000"
+[registries.search]
+unqualified-search-registries = ["localhost:5000", "registry.access.redhat.com", "registry.redhat.io", "docker.io", "quay.io"]
+[registries.insecure]
+registries = ['localhost:5000']
 ```
   
 - analyze images on server (not local)
