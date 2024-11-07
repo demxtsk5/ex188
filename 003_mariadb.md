@@ -38,4 +38,5 @@ mysql -umicha -h 192.168.65.35 -pex188
   use beer;
   show tables;
   show columns from types;
+  select * from types;
 ```
